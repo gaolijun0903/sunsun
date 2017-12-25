@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta https-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no, initial-scale=1">
+	    <meta name = "format-detection" content = "telephone=no"><!--防止iOS网页中的数字被识别为电话号码-->
+		<meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
+		<meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
+		<title>KOOZA太阳马戏门票大抽奖</title>
+		<script type="text/javascript">
+	        var screenWidth=window.screen.width;
+	        document.getElementsByTagName('html')[0].style.fontSize=screenWidth/10+'px';
+	    </script>
+		<style type="text/css">
+		 * { padding:0; margin:0;-webkit-tap-highlight-color: rgba(0,0,0,0); box-sizing: border-box;}
+		HTML ,body { font-size:12px;height:100%;width:100%; font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;}
+		li { list-style-type:none;}
+		input, input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none; color:slateblue; border:none; outline: none; background:transparent; width: 100%;}
+		body{background-color: #120109;}
+		.wrapper{ width: 10.0rem;min-height: 100%;}
+		
+		.head{ width: 10.0rem; height: 16.0rem; position: relative; }
+		.head .rule-btn{ position: absolute; top: 0.53333rem; right: 0.346667rem; width: 2.5rem; height: 0.67rem; line-height: 0.67rem; text-align: center; background: #6908d8; color: #fff; border-radius: 0.3333rem; opacity: 0.8; }
+		.head .myprize-btn{ position: absolute; top: 0.53333rem; left: 0.346667rem; width: 2.5rem; height: 0.70rem; border-radius: 0.35rem; background: #000; opacity: 0.8; color: #fff; text-align: center; line-height: 0.70rem; }
+		
+		.draw{width: 10.0rem;height: 11.0rem; padding-top: 0.5rem; position: relative;}
+		.draw .draw-des{margin: 0 auto; width: 4.48rem; height: 0.866667rem; line-height: 0.866667rem; text-align: center; background: #710220; color: #fff; border-radius: 0.24rem;}
+		.draw .draw-des .draw-num{ color: #fff; }
+		.draw .drawbg-line{ margin: -0.43rem auto 0; width: 6.28rem; height: 8.306667rem; border: 1px solid #710220; border-radius: 15px; }
+		.draw .prize-wrapper{ position: absolute; top: 1.8rem; left: 0.4rem; width: 	9.5rem; height: 6.426667rem; }
+		.draw .prize-wrapper .prize{ position: relative; display: inline-block; width: 2.933333rem; height: 2.986667rem; margin-right: 0.133333rem; margin-bottom: 0.24rem; }
+		.draw .prize-wrapper .prize .cap{ position: absolute; top: 2.986667rem; left: 1.05rem; width: 	0.8rem; height: 0.24rem; background:#710220; border-radius: 2px; }
+		.draw .draw-btn{ position: absolute; top: 8.6rem; left: 2.5rem; width: 5.0rem; height: 1.3rem;	}
+		
+		.lucky-list{ position: relative; padding-bottom: 1.0rem; }
+		.lucky-list .lucky-title{ width: 10.0rem; height: 0.76rem; }
+		.lucky-list .lucky-list-des{ margin: 0.5rem auto 0; width: 5.4rem; height: 0.866667rem; line-height: 0.866667rem; text-align: center; background: #710220; color: #fff; border-radius: 0.24rem; }
+		.lucky-list .lucky-bg{ margin: 0.4rem auto 0; width: 8.946667rem; padding: 0.23rem; height: 13.7rem; border: 1px solid #710220; border-radius: 15px; }
+		.lucky-list .lucky-bg .lucky-head .cell{ color: #6a6267; }
+		.lucky-list .lucky-bg .lucky-body{ height: 11.75rem; overflow: hidden;}
+		.lucky-list .list-item{ height: 1.226667rem; margin-bottom: 0.206667rem; background: #27071e; color: #b32e58; }
+		.lucky-list .list-item .cell{ display: inline-block; line-height: 1.226667rem; text-align: center; font-size: 0.373333rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+		.lucky-list .list-item .name{ width:2.16rem; }
+		.lucky-list .list-item .tel{ width:3.2rem; }
+		.lucky-list .list-item .prize{ width:2.25rem; color: #f04632;}
+		.lucky-list .list-item .prizered{color: #ffec47;}
+		.lucky-list .lucky-bg .list-body-no{line-height: 8rem; color: #fff; text-align: center; font-size: 0.4rem;}
+		
+		.mask-wrapper{ position: fixed; top: 0; left: 0;  width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 20; }
+		.mask-wrapper .mask-inner{ position: absolute; top: 3.0rem; left: 0.42rem; width: 9.17rem; height:8.5rem; background: #590043; border-radius: 15px;}
+		.mask-wrapper .mask-inner .mask-star{ width: 4.213333rem; height:1.373333rem; margin: 0.97rem auto 0; }
+		.mask-wrapper .mask-inner .mask-text{margin-top: 0.9rem; text-align: center; color: #fff267;  font-size: 0.48rem; line-height: 0.88rem;}
+		.mask-wrapper .mask-inner .mask-btn{margin: 0.7rem auto 0; width: 6.5rem; height: 1.3rem; background: #e5004f;border-radius: 15px; text-align: center; color: #fff; font-size: 0.56rem; line-height: 1.3rem; letter-spacing: 20px;}
+		
+		.mask-wrapper .mask-rule{ height: auto; top: 2.0rem; bottom: 2.0rem; color: #fff; padding: 0.3rem; }
+		.mask-wrapper .mask-rule h4{ line-height: 1.4rem; text-align: center; font-size: 0.5rem; }
+		.mask-wrapper .mask-rule .ruletext{ line-height: 0.6rem; font-size: 0.4rem; }
+		.mask-wrapper .rule-container{height: 100%;overflow: scroll;}
+		.mask-wrapper .mask-btn-close{ position: absolute; top: -0.3rem; right: -0.3rem; width: 0.8rem; height: 0.8rem; background: url(http://i1.Yongche.name/media/g2/M03/1A/21/rBEBP1ozJIiIMCIUAAADXsqEGDEAAKUjgP__IoAAAN2832.png); background-size: 100%; }
+		.mask-wrapper .myprize-container{height: 70%;overflow: scroll;}
+		.mask-wrapper .myprize-head{ height: 2.0rem; background: url(http://i1.Yongche.name/media/g2/M02/1A/2B/rBEBJVozS9aIF5ImAAAO7CLDpBIAAKYTQONsP4AAA8E765.png); background-size: 100%; }
+		.mask-wrapper .myprize-item{ height: 3.0rem; line-height: 3.0rem; font-size: 0.4rem; text-align: center; color: #fff; background: url(http://i2.Yongche.name/media/g2/M03/1A/2B/rBEBP1ozJIiIe_DvAAAkk8mQRzYAAKYOAMnlaUAACSr341.png); background-size: 100%; }
+		.mask-wrapper .mask-phone{margin: -0.5rem auto 0; width: 2.4rem;height: 2.4rem; }
+		
+		.toast{ position: fixed; top: 35%; left: 10%; width: 80%; height: 40px; line-height: 40px; background: rgba(0,0,0,0.5); color: #fff; z-index: 30; text-align: center; border-radius: 10px;font-size: 18px;}
+		
+		.slide-fade-enter-active { transition: all .3s ease; }
+		.slide-fade-leave-active { transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0); }
+		.slide-fade-enter , .slide-fade-leave-to { transform: translateY(-100px); opacity: 0; }
+		
+		.slide-up-fade-enter-active { transition: all .3s ease; }
+		.slide-up-fade-leave-active { transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0); }
+		.slide-up-fade-enter , .slide-up-fade-leave-to { transform: translateY(100px); opacity: 0; }
+		
+		.bounce-enter-active { animation: bounce-in .5s; }
+		.bounce-leave-active { animation: bounce-in .5s reverse; }
+		@keyframes bounce-in {
+		  0% {
+		    transform: scale(0);
+		  }
+		  80% {
+		    transform: scale(1.1);
+		  }
+		  100% {
+		    transform: scale(1);
+		  }
+		}
+		@-webkit-keyframes bounce-in {
+		  0% {
+		    transform: scale(0);
+		  }
+		  80% {
+		    transform: scale(1.1);
+		  }
+		  100% {
+		    transform: scale(1);
+		  }
+		}
+		.arrow { width: 20px; height: 20px; position: absolute; bottom: 25px; left: 50%; margin-left: -11px; border: 3px solid transparent; border-top: 3px solid #fff; border-left: 3px solid #fff; z-index:1; opacity: .8; -webkit-transform: rotate(45deg); -webkit-animation: arrow 1.5s infinite ease-in-out; }
+		@-webkit-keyframes arrow {
+			0% {
+			-webkit-transform:translate(0, 0px) rotate(45deg)
+			}
+			50% {
+			-webkit-transform:translate(0, 5px) rotate(45deg)
+			}
+			100% {
+			-webkit-transform:translate(0, 10px) rotate(45deg)
+			}
+		}
+		[v-cloak] {
+            display: none;
+        }
+		</style>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<div class="wrapper" v-if="inApp"><!--APP中打开-->
+				<div class="head">
+					<img src="http://i2.Yongche.name/media/g2/M01/1A/2C/rBEBP1ozj82ICRGVAAQ1Cd17OywAAKYcwOHGlIABDUh918.jpg" width="100%" height="100%"/>
+					<div class="myprize-btn" @click="showMyPrize">我的奖品</div>  
+					<div class="rule-btn" @click=showRule>活动规则</div>
+					<div class="arrow"></div>
+				</div>
+				<div class="draw">
+					<div class="draw-des">
+						<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum">1</span>次抽奖机会</div>
+					</div>
+					<div class="drawbg-line"></div>
+					
+					<div class="prize-wrapper">
+						<div class="prize" v-for="prize in prizeArr">
+							<img v-show="currentIdx!=prize.index" :src="prize.blue" width="100%" height="100%"/>
+							<img v-show="currentIdx===prize.index" :src="prize.red" width="100%" height="100%"/>
+							<div class="cap"></div>
+						</div>
+					</div>
+					
+					<div class="draw-btn" @click=getResult>
+						<img v-show="!drawNum || (!isClick)" src="http://i3.Yongche.name/media/g2/M03/1A/2B/rBEBJVozIo2IGyrlAAAmoSzYmaIAAKYOAI9JgIAACa5337.png" width="100%" height="100%"/>
+						<img v-show="drawNum && isClick" src="http://i2.Yongche.name/media/g2/M03/1A/2B/rBEBJVozIo2IJnj3AAAh25tl_2UAAKYOAI9TLsAACHz419.png" width="100%" height="100%"/>
+					</div>
+				</div>
+				
+				<div class="lucky-list">
+					<div class="lucky-title">
+						<img src="http://i2.Yongche.name/media/g2/M02/1A/2B/rBEBP1ozI-2IB5EJAAAIIgUDBmQAAKYNQP_toYAAAg6312.png" width="100%" height="100%"/>
+					</div>
+					<div class="lucky-list-des">此名单只展示部分中奖者</div>
+					<div class="lucky-bg">
+						<div class="lucky-head list-item">
+							<div class="cell name">姓名</div>
+							<div class="cell tel">手机号码</div>
+							<div class="cell prize">获得奖品</div>
+						</div>
+						<div class="lucky-body" ref="listWrapper">
+							<div id="list-body" class="list-body" v-show="luckyList.length>0">
+								<div class="list-item" v-for="item in luckyList">
+									<div class="cell name" v-html="item.name"></div>
+									<div class="cell tel" v-html="item.cellphone"></div>
+									<div class="cell prize" :class="{'prizered':item.award_type===1||item.award_type===2}" v-html="toPrize(item.award_type)"></div>
+								</div>
+							</div>
+							<div class="list-body-no" v-show="luckyList.length===0">中奖名单将会在这里展现</div>
+						</div>
+					</div>
+				</div>
+				<transition name="slide-fade"><!--未登录-->
+				    <div class="mask-wrapper" v-if="inApp&&showMask&&!isLogin">
+						<div class="mask-inner">
+							<div class="mask-star">
+								<img src="http://i2.Yongche.name/media/g2/M01/1A/2B/rBEBJVozJImIHLduAAALcKNibAQAAKYNwNjW7kAAAuI916.png" width="100%" height="100%"/>
+							</div>
+							<div class="mask-text">
+								<div class="text-line1">您尚未登录</div>
+								<div class="text-line2" >请点击去登录</div>
+							</div>
+							<div class="mask-btn" @click.stop="closeMask">确定</div>
+						</div>
+					</div>
+				</transition>
+				<transition name="bounce"><!--中奖弹窗-->
+				    <div class="mask-wrapper" v-if="inApp&&showMask&&isLogin&&(!isShowRule)&&(!isShowPrize)">
+						<div class="mask-inner">
+							<div class="mask-star">
+								<img src="http://i2.Yongche.name/media/g2/M01/1A/2B/rBEBJVozJImIHLduAAALcKNibAQAAKYNwNjW7kAAAuI916.png" width="100%" height="100%"/>
+							</div>
+							<div class="mask-text">
+								<div class="text-line1" >恭喜您获得</div>
+								<div class="text-line2" v-html="maskText.text1"></div>
+								<div class="text-line3" v-html="maskText.text2"></div>
+							</div>
+							<div class="mask-btn" @click.stop="closeMask">确定</div>
+						</div>
+					</div>
+				</transition>
+				<transition name="slide-fade"><!--活动规则-->
+				    <div class="mask-wrapper" v-if="inApp&&showMask&&isLogin&&isShowRule&&(!isShowPrize)">
+						<div class="mask-inner mask-rule">
+							<div class="rule-container">
+								<h4>活动规则</h4>
+								<div class="ruletext">
+									<div class="rule-item" v-for="item in ruleList" v-html="item"></div>
+								</div>
+							</div>
+							<div class="mask-btn-close" @click.stop="closeMask"></div>
+						</div>
+					</div>
+				</transition>
+				<transition name="slide-fade"><!--我的奖品-->
+				    <div class="mask-wrapper" v-if="inApp&&showMask&&isLogin&&isShowPrize&&(!isShowRule)">
+						<div class="mask-inner">
+							<h4 class="myprize-head"></h4>
+							<div class="myprize-container">
+								<div class="prize-list" v-if="prizeList.length!=0">
+									<div class="myprize-item" v-for="item in prizeList">
+										<span  v-text="item.remark"></span>
+									</div>
+								</div>
+								<div class="mask-text" v-if="prizeList.length==0">
+									<div class="text-line1" >目前还没有奖品</div>
+									<div class="text-line2" >赶快叫车获得抽奖机会参与活动吧</div>
+								</div>
+							</div>
+							<div class="mask-btn-close" @click.stop="closeMask"></div>
+						</div>
+					</div>
+				</transition>
+				
+				<transition name="slide-up-fade">
+					<div class="toast" v-show="showToast" v-html="toastMsg"></div>
+				</transition>
+			</div>
+			<div v-if="!inApp" ><!--分享后不是在APP中打开-->
+				<div class="mask-wrapper" >
+					<div class="mask-inner ">
+						<div class="mask-star">
+							<img src="http://i2.Yongche.name/media/g2/M01/1A/2B/rBEBJVozJImIHLduAAALcKNibAQAAKYNwNjW7kAAAuI916.png" width="100%" height="100%"/>
+						</div>
+						<div class="mask-phone">
+							<img src="http://i1.Yongche.name/media/g2/M01/1A/2B/rBEBJVozJImIQxq_AAA6N3G0LAcAAKYNwNjIWoAADpP284.png" width="100%" height="100%"/>
+						</div>
+						<div class="mask-text">请在易到APP内打开</div>
+						<div class="mask-btn" onclick="WeixinJSBridge.call('closeWindow');">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
+        <script src="https://i1.Yongche.name/s/js/201711/jsonp.js?1478153218"></script>
+        <script src="https://i3.Yongche.name/s/js/201712/bscroll.min.js?1478153218"></script>
+        <script src="https://i2.Yongche.name/s/js/201712/flexible.js?1478153218"></script>
+<script type="text/javascript">
+   
+new Vue({
+  el: '#app',
+  data:{
+  	inApp: true,
+    http:"//yaoyakun-market.Yongche.org",
+    //http:"//market.Yongche.com",
+    ruleList:["1、活动时间：2017年12月15日18:00起至2017年12月18日23:59止；",
+"2、获取条件：在活动时间内每次完成订单均可参与抽奖，每人可获得的奖品为价值380元或580元KOOZA太阳马戏门票2张、车载空气净化器1台、5折易到打车券、7折易到打车券、8折易到打车券、9折易到打车券；",
+"3、领取方式：获得KOOZA太阳马戏门票和车载空气净化器的用户在中奖后请填写弹出页面中的收件人信息，当日完成的订单请在当日23:59前填写完成，逾期视为自动放弃，我们会在第一时间安排顺丰进行邮寄（暂不支持自取）；获得易到打车券的用户我们会在3个工作日内将优惠券存入账户中；",
+"4、为您提供的KOOZA太阳马戏门票价值380元或580元（具体演出时间与票价及座位随机、门票不含朝阳公园门票、儿童无论大小均需持票入场），地点为北京市朝阳公园北一门外，演出时长在150分钟左右（含30分钟中场休息），观看演出时请遵守场馆的相关规定并服从工作人员安排；",
+"5、易到打车券有效期为7天，5折打车券最高减30元、7折优惠券最高减15元、8折优惠券最高减10元、非高峰9折优惠券最高减10元；",
+"6、本活动仅针对北京地区的个人用户，企业用户不在活动范围之内，更多优惠活动敬请关注易到APP；",
+"7、本活动最终解释权在法律允许范围内归易到所有，活动仅提供给正当、合法使用叫车服务的的易到客户，一旦发现作弊行为，易到有权追回作弊所得门票并保留取消作弊人后续参与易到任何活动的权利，必要时会追究其法律责任。"
+],
+ 	prizeArr:[
+	{//车载净化器
+		blue:"http://i1.Yongche.name/media/g2/M03/1A/2B/rBEBJVozIo2INK9kAAAxELSfsxgAAKYOAI9210AADEo836.png",
+		red:"http://i3.Yongche.name/media/g2/M03/1A/2B/rBEBJVozIo2IHtGVAAA5sNiCjUkAAKYOAI-DIUAADnI487.png",
+		index:1
+	},
+	{//太阳马戏门票
+		blue:"http://i2.Yongche.name/media/g2/M03/1A/2B/rBEBP1ozIo2IPFbcAAAyhlX359QAAKYOAI9bq4AADKe248.png",
+		red:"http://i2.Yongche.name/media/g2/M03/1A/2B/rBEBP1ozIo2IJf-uAAA5-eYMumwAAKYOAI9oUwAADoR118.png",
+		index:2
+	},
+	{//5折用车券
+		blue:"http://i3.Yongche.name/media/g2/M03/1A/2B/rBEBP1ozIo2IMvGsAAAxsECEoZcAAKYOAI-Rk0AADHI118.png",
+		red:"http://i2.Yongche.name/media/g2/M03/1A/2B/rBEBP1ozIo2IV5GkAAA8KIi0ecsAAKYOAI-eBUAADxA804.png",
+		index:3
+	},
+	{//9折用车券
+		blue:"http://i3.Yongche.name/media/g2/M01/1A/2B/rBEBP1ozI-2IBrdjAAAxS0XnbsUAAKYNwL96sQAADFj221.png",
+		red:"http://i2.Yongche.name/media/g2/M02/1A/2B/rBEBJVozI-6IWfv3AAA8HDjEVWcAAKYNQP_elIAADw0698.png",
+		index:0
+	},
+	{//8折
+		blue:"http://i1.Yongche.name/media/g2/M02/1A/2B/rBEBJVozI-6IGSGnAAAybRwbfncAAKYNQP_C4YAADKF965.png",
+		red:"http://i3.Yongche.name/media/g2/M02/1A/2B/rBEBP1ozI-2IEa54AAA8L2M068kAAKYNQP_PgsAADxH664.png",
+		index:5
+	},
+	{//7折
+		blue:"http://i1.Yongche.name/media/g2/M01/1A/2B/rBEBP1ozI-2IUpSGAAAx1U12zdYAAKYNwL9uNcAADHt464.png",
+		red:"http://i2.Yongche.name/media/g2/M02/1A/2B/rBEBJVozI-6ITbDaAAA5QTAtLpYAAKYNQP-0i0AADlZ955.png",
+		index:4
+	}],
+	prizeList:[],
+  	isLogin:1,
+	drawNum:0,
+	isClick:0,
+	currentIdx:1,
+	luckyList:[],
+	showMask:false,
+	isShowRule:false,
+	isShowPrize:false,
+	maskText:{
+		text1:"",
+		text2:""
+	},
+	award_type:0,
+	showToast:false,
+	toastMsg:""
+  },
+  mounted: function(){
+  	var isYidao = document.cookie.indexOf("_app_token_v3_ua");
+  	//isYidao = 1; //TODO
+  	if(isYidao===-1){
+		this.inApp = false;
+	}else{
+		this.inApp = true;
+		this.initData();
+	}
+  },
+  methods:{
+  	initScroll:function () {
+  		var vm = this;
+		this.scroll = new BScroll(this.$refs.listWrapper, {
+			probeType: 1
+		});
+	},
+  	initData:function (){// 获取随叫随到订单数
+  		var vm = this;
+  		JSONP.init({
+  			error:function(ex){
+  				alert("Failed to load:" + ex.url);
+  			}
+  		})
+		JSONP.get(vm.http+"/Miscellaneous/Kooza/getInitPage", function (data) {
+   			if(data.code==200){
+         		console.log(data)
+         		vm.isLogin = data.result.isLogin;
+         		//vm.isLogin = 1; //TODO
+          		if(vm.isLogin==0){
+           			vm.showMask=true;
+           			return
+          		}
+          		
+         		vm.luckyList = data.result.userList;//中奖名单
+         		vm.prizeList = data.result.my_awards;//我的奖品列表
+         		vm.drawNum = data.result.count;//可以抽奖次数
+         		vm.isClick = 1;
+         		vm.$nextTick(function(){
+         			vm.initScroll();
+         		})
+            }else{
+            	vm.toastMsgFn(data.code);
+            }
+ 		});
+	},
+	getResult:function(){//点击抽奖
+		if(this.drawNum<=0 || this.isClick==0){//不可以抽奖
+			return
+		}
+		var vm = this;
+        this.isClick=0;
+        JSONP.init({
+  			error:function(ex){
+  				alert("Failed to load:" + ex.url);
+  			}
+  		})
+		JSONP.get( vm.http+"/Miscellaneous/Kooza/getResult", function (data) {
+			vm.isClick=1;
+   			if(data.code==200){//100%中奖
+   				vm.drawNum-=1;
+         		//开始轮播
+         		vm.rotatePrize(data.result.award_type);
+         		vm.toMaskPrize(data.result.award_type);
+         	}else if(data.code==101){
+         		vm.toastMsgFn("活动未开始");
+         	}else if(data.code==102){
+         		vm.toastMsgFn("活动已结束");
+         	}else{
+         		vm.toastMsgFn(data.code);
+         	}
+ 		});
+	},
+	rotatePrize:function(idx){
+		var vm = this;
+		var rotateNum = 4*6+idx;
+		var i=0 , time = 100 , timer;
+		vm.currentIdx = 1;
+		count();
+		function count(){
+			i++;
+			timer = setTimeout(function(){count()},time);
+			vm.currentIdx = i%6;
+			if(i>15){
+				time+=i*2;
+			}
+			if(i==rotateNum){
+				clearTimeout(timer);
+				vm.award_type=idx;
+				setTimeout(function(){
+					vm.showMask=true;
+				},150)
+			}
+		}
+	},
+	showRule:function(){
+		this.showMask=true;
+		this.isShowRule=true;
+	},
+	showMyPrize:function(){
+		this.showMask=true;
+		this.isShowPrize=true;
+	},
+	closeMask:function(){
+		this.showMask=false;
+		if(!this.isLogin){
+			window.location.href = "yongche://login?done="+encodeURIComponent(window.location.href+"?t="+new Date().getTime());
+			return;
+		}
+		if(this.isShowRule){
+			this.isShowRule=false;
+			return;
+		}
+		if(this.isShowPrize){
+			this.isShowPrize=false;
+			return;
+		}
+		if(this.award_type==1){//中奖-空气净化器
+			this.initData();
+			window.location.href="https://www.wenjuan.in/s/fMjqa2e/";
+			return
+		}
+		if(this.award_type===2){//中奖-马戏门票
+			this.initData();
+			window.location.href="https://www.wenjuan.in/s/URzaMj/";
+			return
+		}
+		this.initData();
+	},
+	toastMsgFn:function(msg){
+		var vm = this;
+		vm.showToast = true;
+ 		vm.toastMsg=msg;
+ 		setTimeout(function(){
+ 			vm.showToast = false;
+ 		},2000)
+	},
+	toPrize:function(num){
+		if(num===1){
+			return "空气净化器 ";
+		}else if(num==2){
+			return "门票2张";
+		}else if(num==3){
+			return "5折打车券1张";
+		}else if(num==4){
+			return "7折打车券1张";
+		}else if(num==5){
+			return "8折打车券1张";
+		}else{
+			return "9折打车券1张";
+		}
+	},
+	toMaskPrize:function(num){
+		if(num===1){
+			this.maskText.text1 = "车载空气净化器1台 ";
+			this.maskText.text2 = "请点击“确定”填写收件信息";
+		}else if(num==2){
+			this.maskText.text1 = "KOOZA太阳马戏门票2张";
+			this.maskText.text2 = "请点击“确定”填写收件信息";
+		}else if(num==3){
+			this.maskText.text1 = "5折打车券1张";
+			this.maskText.text2 = "将在3个工作日内存入您的账户";
+		}else if(num==4){
+			this.maskText.text1 = "7折打车券1张";
+			this.maskText.text2 = "将在3个工作日内存入您的账户";
+		}else if(num==5){
+			this.maskText.text1 = "8折打车券1张";
+			this.maskText.text2 = "将在3个工作日内存入您的账户";
+		}else{
+			this.maskText.text1 = "9折打车券 1张";
+			this.maskText.text2 = "将在3个工作日内存入您的账户";
+		}
+	}
+ }
+})
+
+
+</script>
+	</body>
+</html>
